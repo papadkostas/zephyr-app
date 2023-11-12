@@ -1,0 +1,46 @@
+# SPDX-License-Identifier: Apache-2.0
+
+if BOARD_CUSTOM_L432KC
+
+config BOARD
+	default "custom_l432kc"
+
+if DISPLAY
+
+config SPI_STM32_INTERRUPT
+	default y
+	depends on SPI
+
+config ILI9340
+	default y
+
+config INPUT
+	default y if LVGL
+
+if INPUT
+
+config INPUT_XPT2046
+	default y
+
+endif # INPUT
+
+if LVGL
+
+config LV_Z_VDB_SIZE
+	default 16
+
+config LV_Z_BITS_PER_PIXEL
+	default 16
+
+choice LV_COLOR_DEPTH
+	default LV_COLOR_DEPTH_16
+endchoice
+
+config LV_COLOR_16_SWAP
+	default y
+
+endif # LVGL	
+
+endif # DISPLAY
+
+endif # BOARD_NUCLEO_L432KC

@@ -2,13 +2,12 @@
 # the Zephyr testing tool. In this file, multiple combinations can be specified,
 # so that you can easily test all of them locally or in CI.
 sample:
-  description: Example application
-  name: example-application 
+  description: Zephyr application
+  name: Zephyr UI application 
 common:
   build_only: true
   integration_platforms:
-    - custom_plank
-    - nucleo_f302r8
+    - custom_l432kc
 tests:
   app.default: {}
   app.debug:
